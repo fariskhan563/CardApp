@@ -20,7 +20,7 @@ class WelcomeScreen extends React.Component {
     return (
 
       <ImageBackground source={Images.background} style={styles.backgroundWrapper}
-        imageStyle={{ opacity: 0.4 }}>
+        imageStyle={{ opacity: 0.3 }}>
         <View style={styles.mainWrapper}>
 
           <View style={styles.logoWrapper}>
