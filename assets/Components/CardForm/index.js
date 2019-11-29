@@ -4,13 +4,27 @@ import { withNavigation } from "react-navigation";
 import { Images, Colors } from "../../Utils/index";
 import styles from "./style";
 
-const CardForm = props => {
-  const { form } = props;
+
+class CardForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      bankName: "",
+      cardCredit: "",
+      installmentMonths: "",
+      interest: "",
+      monthlyPay: ""
+    };
+  }
+
+  render() {
+  const { bankName, cardCredit, installmentMonths, interest, monthlyPay } = this.state;
   return (
     <View style={styles.mainContainer}>
       <View style={styles.topContainer}>
         <View style={styles.itemWrapper}>
-          <Text style={styles.itemText}> {form.number} </Text>
+          <Text style={styles.itemText}> 1 </Text>
         </View>
         <View style={styles.imgWrapper}>
           <Image source={Images.card} style={styles.cardImage} />
@@ -25,6 +39,7 @@ const CardForm = props => {
           <TextInput
             style={styles.inputBox}
             onChangeText={text => this.setState({ bankName: text })}
+            value={bankName}
           />
         </View>
 
@@ -36,6 +51,7 @@ const CardForm = props => {
             style={styles.inputBox}
             keyboardType="numeric"
             onChangeText={text => this.setState({ cardCredit: text })}
+            value={cardCredit}
           />
         </View>
 
@@ -47,6 +63,7 @@ const CardForm = props => {
             style={styles.inputBox}
             keyboardType="numeric"
             onChangeText={text => this.setState({ installmentMonths: text })}
+            value={installmentMonths}
           />
         </View>
 
@@ -58,6 +75,7 @@ const CardForm = props => {
             style={styles.inputBox}
             keyboardType="numeric"
             onChangeText={text => this.setState({ interest: text })}
+            value={interest}
           />
         </View>
 
@@ -69,11 +87,13 @@ const CardForm = props => {
             style={styles.inputBox}
             keyboardType="numeric"
             onChangeText={text => this.setState({ monthlyPay: text })}
+            value={monthlyPay}
           />
         </View>
       </View>
     </View>
   );
+  }
 }
 
 
